@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: "#019863",
+        "background-light": "#f5f8f7",
+        "background-dark": "#0f231c",
+        "foreground-light": "#0d141b",
+        "foreground-dark": "#f0f2f5",
+        "subtle-light": "#4c739a",
+        "subtle-dark": "#a1b4c5",
+        "border-light": "#e7edf3",
+        "border-dark": "#2a3b4c"
+      },
+      fontFamily: { display: "Public Sans" },
+      borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark">
+<div class="flex flex-col min-h-screen">
+
+<!-- Header -->
+<header class="border-b border-border-light dark:border-border-dark">
+  <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-8">
+      <a class="flex items-center gap-2" href="#">
+        <span class="text-2xl font-bold">Vector</span>
+      </a>
+    </div>
+    <div onclick="window.location.href='homepage.html'">Go back</div>
+  </nav>
+</header>
+
+<!-- Main -->
+<main class="flex-grow container mx-auto px-6 py-8 lg:py-16">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+  <!-- Cart Items -->
+  <div class="lg:col-span-2">
+    <h1 class="text-3xl lg:text-4xl font-bold mb-8">Your Bag</h1>
+    <div id="cart-items" class="space-y-6">
+
+      <!-- Product Template -->
+      <div class="flex items-start gap-4 p-4 rounded-lg bg-white dark:bg-background-dark border border-border-light dark:border-border-dark cart-item" data-price="10000">
+        <div class="w-24 h-24 lg:w-32 lg:h-32 rounded-lg bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBNVTD1Xh9Jgt4a98TmxioBq-ui4g8Gb1umtmInIMbsDjbHSoc65Hn8QikzW1pRIFrdBxqSIMCkrW9_9isOjeJ64YucQqXYs1XcYw_I7UTnyFJi_li66uoIVKlo2RBXqZ5z7hrTiU6NZhkHd1HHL9ei8hSvAx1dWmEYq-pmL2w8lX9S3U-0iL0jMfAFHa7WIkjIVbTDIRWgVF9zaL_UvIOyPcS-xLXl1xhQsCO8nTm4EN3175OTYJN4wClXwnjqUIMJYJBD_QZCWZUO');"></div>
+        <div class="flex-grow flex flex-col sm:flex-row justify-between">
+          <div class="flex-grow pr-4">
+            <h2 class="font-bold text-lg">StrideStep Air Max 90</h2>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark">Size 9</p>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark mt-1 item-price">₹10,000.00</p>
+          </div>
+          <div class="flex items-center gap-4 mt-4 sm:mt-0">
+            <div class="flex items-center border border-border-light dark:border-border-dark rounded-full">
+              <button class="px-3 py-1 text-lg font-bold text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors decrease">-</button>
+              <span class="px-2 text-md font-medium quantity">1</span>
+              <button class="px-3 py-1 text-lg font-bold text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors increase">+</button>
+            </div>
+            <button class="text-subtle-light dark:text-subtle-dark hover:text-red-500 transition-colors delete">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repeat other products similarly -->
+      <div class="flex items-start gap-4 p-4 rounded-lg bg-white dark:bg-background-dark border border-border-light dark:border-border-dark cart-item" data-price="13300">
+        <div class="w-24 h-24 lg:w-32 lg:h-32 rounded-lg bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvSbQvHw44enFvHjkXlxYX26LWIm3QQhq_cDAYevAztvOw8mKsxv8Cnk1-hxJoEkbtZYXcKXOxT2gz_g6DY_3OC1oLggo9G1jMwgu4yaFr2GHemQerjuzspLBsUxqi21_pgbxQgtuiH2oVrekVV3Xy_LHSFALKZirT3mwzTQAlOwwVAwqepiD3xuvre0QqAYr4H-Q0Tg_Pr6jAqVQNt3THazFyvkg7Vdz9l84IM36uvcd3wMyrd0Zql9pLopDZj5kRJdTOiSwaLspH');"></div>
+        <div class="flex-grow flex flex-col sm:flex-row justify-between">
+          <div class="flex-grow pr-4">
+            <h2 class="font-bold text-lg">StrideStep React Infinity Run</h2>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark">Size 10</p>
+            <p class="text-sm text-subtle-light dark:text-subtle-dark mt-1 item-price">₹13,300.00</p>
+          </div>
+          <div class="flex items-center gap-4 mt-4 sm:mt-0">
+            <div class="flex items-center border border-border-light dark:border-border-dark rounded-full">
+              <button class="px-3 py-1 text-lg font-bold text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors decrease">-</button>
+              <span class="px-2 text-md font-medium quantity">1</span>
+              <button class="px-3 py-1 text-lg font-bold text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors increase">+</button>
+            </div>
+            <button class="text-subtle-light dark:text-subtle-dark hover:text-red-500 transition-colors delete">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="lg:col-span-1">
+    <div class="bg-white dark:bg-background-dark p-6 rounded-lg border border-border-light dark:border-border-dark sticky top-28">
+      <h2 class="text-2xl font-bold mb-6">Summary</h2>
+      <div class="space-y-4">
+        <div class="flex justify-between text-subtle-light dark:text-subtle-dark">
+          <span>Subtotal</span>
+          <span id="subtotal">₹23,300.00</span>
+        </div>
+        <div class="flex justify-between text-subtle-light dark:text-subtle-dark">
+          <span>Shipping</span>
+          <span>Free</span>
+        </div>
+        <div class="flex justify-between text-subtle-light dark:text-subtle-dark">
+          <span>Estimated Tax</span>
+          <span id="tax">₹1,865.00</span>
+        </div>
+        <div class="border-t border-border-light dark:border-border-dark my-4"></div>
+        <div class="flex justify-between font-bold text-xl">
+          <span>Total</span>
+          <span id="total">₹25,165.00</span>
+        </div>
+      </div>
+      <button class="w-full mt-8 bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-primary/90 transition-colors">Checkout</button>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- JS for functionality -->
+<script>
+function formatPrice(price){
+  return '₹' + price.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+function updateSummary() {
+  const cartItems = document.querySelectorAll('.cart-item');
+  let subtotal = 0;
+  cartItems.forEach(item => {
+    const price = parseFloat(item.dataset.price);
+    const qty = parseInt(item.querySelector('.quantity').textContent);
+    subtotal += price * qty;
+  });
+  document.getElementById('subtotal').textContent = formatPrice(subtotal);
+  const tax = subtotal * 0.08; // 8% tax
+  document.getElementById('tax').textContent = formatPrice(tax);
+  document.getElementById('total').textContent = formatPrice(subtotal + tax);
+}
+
+document.addEventListener('click', function(e){
+  if(e.target.closest('.increase')){
+    const parent = e.target.closest('.cart-item');
+    const qtyElem = parent.querySelector('.quantity');
+    qtyElem.textContent = parseInt(qtyElem.textContent) + 1;
+    const price = parseFloat(parent.dataset.price);
+    parent.querySelector('.item-price').textContent = formatPrice(price * parseInt(qtyElem.textContent));
+    updateSummary();
+  }
+
+  if(e.target.closest('.decrease')){
+    const parent = e.target.closest('.cart-item');
+    const qtyElem = parent.querySelector('.quantity');
+    if(parseInt(qtyElem.textContent) > 1){
+      qtyElem.textContent = parseInt(qtyElem.textContent) - 1;
+      const price = parseFloat(parent.dataset.price);
+      parent.querySelector('.item-price').textContent = formatPrice(price * parseInt(qtyElem.textContent));
+      updateSummary();
+    }
+  }
+
+  if(e.target.closest('.delete')){
+    const parent = e.target.closest('.cart-item');
+    parent.remove();
+    updateSummary();
+  }
+});
+
+// Initialize summary on page load
+updateSummary();
+</script>
+</body>
+</html>

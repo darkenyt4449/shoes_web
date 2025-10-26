@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Product List</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#019863",
+              "background-light": "#f5f8f7",
+              "background-dark": "#0f231c",
+            },
+            fontFamily: {
+              display: "Public Sans"
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <header class="border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-8">
+                <a class="flex items-center gap-2" href="#">
+                    <svg class="h-8 w-8 text-primary" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.38,10.42L12.5,2.44a1.21,1.21,0,0,0-1,0L2.62,10.42a1.76,1.76,0,0,0-.37,2.4l.1.13,8.75,8.1a1.21,1.21,0,0,0,1.76,0l8.75-8.1.1-.13A1.76,1.76,0,0,0,21.38,10.42ZM12,18.75,4.5,12,12,3.75,19.5,12Z"></path>
+                    </svg>
+                    <span class="text-2xl font-bold text-gray-900 dark:text-white">Vector</span>
+                </a>
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">New Arrivals</a>
+                    <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Men</a>
+                    <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Women</a>
+                    <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Kids</a>
+                    <a class="text-sm font-medium text-red-500 hover:text-red-600" href="#">Sale</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:block relative">
+                    <input class="h-10 w-48 rounded-lg border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark pl-10 pr-4 text-sm focus:ring-primary focus:border-primary" placeholder="Search" type="search" />
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" fill="currentColor" height="20" viewbox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                    </svg>
+                </div>
+                <button class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <svg fill="currentColor" height="24" viewbox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"></path>
+                    </svg>
+                </button>
+                <button class="relative p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <svg fill="currentColor" height="24" viewbox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM176,88a48,48,0,0,1-96,0,8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0Z"></path>
+                    </svg>
+                    <span class="absolute top-0 right-0 -mt-1 -mr-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-white text-xs">2</span>
+                </button>
+                <button class="lg:hidden p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <aside class="w-full lg:w-64">
+                <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Filters</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold mb-2 text-gray-800 dark:text-gray-200">Category</h3>
+                        <div id="category-filters" class="space-y-1">
+                            <label class="flex items-center">
+                                <input type="checkbox" value="Running" class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary filter-checkbox" />
+                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Running</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" value="Lifestyle" class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary filter-checkbox" />
+                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Lifestyle</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" value="Basketball" class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary filter-checkbox" />
+                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Basketball</span>
+                            </label>
+                             <label class="flex items-center">
+                                <input type="checkbox" value="Training" class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary filter-checkbox" />
+                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Training</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                             <h3 class="font-semibold text-gray-800 dark:text-gray-200">Price</h3>
+                             <span id="price-value" class="text-sm font-medium text-gray-900 dark:text-white">₹20,000</span>
+                        </div>
+                        <input id="price-slider" type="range" min="5000" max="20000" value="20000" step="100" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 accent-primary" />
+                        <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300 mt-1">
+                            <span>₹5,000</span>
+                            <span>₹20,000</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 text-gray-800 dark:text-gray-200">Gender</h3>
+                        <div id="gender-filters" class="space-y-1">
+                            <label class="flex items-center">
+                                <input type="checkbox" value="Men" class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary filter-checkbox" />
+                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Men</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" value="Women" class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary filter-checkbox" />
+                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Women</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" value="Unisex" class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary filter-checkbox" />
+                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Unisex</span>
+                            </label>
+                        </div>
+                    </div>
+                    <button id="apply-filters-btn" class="w-full bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-opacity-90 transition">
+                        Apply Filters
+                    </button>
+                </div>
+            </aside>
+            <div class="flex-1">
+                <div class="mb-4 flex items-center justify-between">
+                    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Shop All</h1>
+                    <div class="relative">
+                        <select id="sort-by" class="appearance-none h-10 pl-3 pr-8 rounded-lg border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark text-sm focus:ring-primary focus:border-primary">
+                            <option value="featured">Sort by: Featured</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                        <svg class="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" fill="currentColor" viewbox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                    </div>
+                </div>
+                <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                </div>
+                <div class="mt-8 flex justify-center">
+                    <nav aria-label="Pagination" class="inline-flex rounded-lg shadow-sm -space-x-px">
+                        <a class="relative inline-flex items-center px-2 py-2 rounded-l-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">
+                            <span class="sr-only">Previous</span>
+                            <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a aria-current="page" class="relative z-10 inline-flex items-center px-4 py-2 border border-primary bg-primary/20 text-sm font-medium text-primary" href="#"> 1 </a>
+                        <a class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800" href="#"> 2 </a>
+                        <a class="relative hidden items-center px-4 py-2 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 md:inline-flex" href="#"> 3 </a>
+                        <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark text-sm font-medium text-gray-700 dark:text-gray-300"> ... </span>
+                        <a class="relative hidden items-center px-4 py-2 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 md:inline-flex" href="#"> 8 </a>
+                        <a class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800" href="#"> 9 </a>
+                        <a class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800" href="#"> 10 </a>
+                        <a class="relative inline-flex items-center px-2 py-2 rounded-r-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">
+                            <span class="sr-only">Next</span>
+                            <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const allProducts = [
+                { id: 0, name: 'StrideStep Air Max', price: 12999, category: 'Lifestyle', gender: 'Unisex', imgSrc: 'assetsshoes1.jpg' },
+                { id: 1, name: 'StrideStep ZoomX', price: 14999, category: 'Running', gender: 'Men', imgSrc: 'assets/shoes2.jpg' },
+                { id: 2, name: 'StrideStep Free Run', price: 10999, category: 'Running', gender: 'Women', imgSrc: 'assets/shoes3.jpg' },
+                { id: 3, name: 'StrideStep React', price: 11999, category: 'Lifestyle', gender: 'Men', imgSrc: 'assets/shoes4.jpg' },                
+                { id: 4, name: 'StrideStep Pegasus', price: 9999, category: 'Running', gender: 'Unisex', imgSrc: 'assets/shoes5.jpg' },
+                { id: 5, name: 'StrideStep VaporMax', price: 16999, category: 'Lifestyle', gender: 'Women', imgSrc: 'assets/shoes6.jpg' },
+                { id: 6, name: 'StrideStep Metcon', price: 13999, category: 'Training', gender: 'Men', imgSrc: 'assets/shoes7.jpg' },
+                { id: 7, name: 'StrideStep Alphafly', price: 18999, category: 'Running', gender: 'Unisex', imgSrc: 'assets/shoes1.jpg' },
+                { id: 8, name: 'StrideStep Court', price: 8999, category: 'Basketball', gender: 'Men', imgSrc: 'assets/shoes2.jpg' },
+                { id: 9, name: 'StrideStep Heritage', price: 7999, category: 'Lifestyle', gender: 'Women', imgSrc: 'assets/shoes3.jpg' },
+                { id: 10, name: 'StrideStep Flyknit', price: 15999, category: 'Training', gender: 'Unisex', imgSrc: 'assets/shoes4.jpg' },
+                { id: 11, name: 'StrideStep Jordan', price: 19999, category: 'Basketball', gender: 'Men', imgSrc: 'assets/shoes7.jpg' }
+            ];
+
+            const productGrid = document.getElementById('product-grid');
+            const priceSlider = document.getElementById('price-slider');
+            const priceValue = document.getElementById('price-value');
+            const applyFiltersBtn = document.getElementById('apply-filters-btn');
+            const categoryFilters = document.getElementById('category-filters');
+            const genderFilters = document.getElementById('gender-filters');
+            const sortByDropdown = document.getElementById('sort-by');
+
+            function renderProducts(products) {
+                productGrid.innerHTML = '';
+                if (products.length === 0) {
+                    productGrid.innerHTML = <p class="col-span-full text-center text-gray-500 dark:text-gray-400">No products match your filters.</p>;
+                    return;
+                }
+                products.forEach(product => {
+                    const productCard = `
+                        <div class="group relative">
+                            <div class="aspect-square w-full overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
+                                <img alt="${product.name}" class="h-full w-full object-cover object-center transition-transform group-hover:scale-105" src="${product.imgSrc}" />
+                            </div>
+                            <div class="mt-2">
+                                <h3 class="text-sm font-medium text-gray-800 dark:text-gray-200">${product.name}</h3>
+                                <p class="mt-1 text-base font-bold text-gray-900 dark:text-white">₹${product.price.toLocaleString('en-IN')}</p>
+                            </div>
+                        </div>
+                    `;
+                    productGrid.insertAdjacentHTML('beforeend', productCard);
+                });
+            }
+
+            function applyFilters() {
+                const maxPrice = parseInt(priceSlider.value);
+                const selectedCategories = Array.from(categoryFilters.querySelectorAll('input:checked')).map(cb => cb.value);
+                const selectedGenders = Array.from(genderFilters.querySelectorAll('input:checked')).map(cb => cb.value);
+                const sortBy = sortByDropdown.value;
+
+                let processedProducts = allProducts.filter(product => product.price <= maxPrice);
+
+                if (selectedCategories.length > 0) {
+                    processedProducts = processedProducts.filter(product => selectedCategories.includes(product.category));
+                }
+
+                if (selectedGenders.length > 0) {
+                    processedProducts = processedProducts.filter(product => selectedGenders.includes(product.gender));
+                }
+
+                if (sortBy === 'price-asc') {
+                    processedProducts.sort((a, b) => a.price - b.price);
+                } else if (sortBy === 'price-desc') {
+                    processedProducts.sort((a, b) => b.price - a.price);
+                } else if (sortBy === 'newest') {
+                    processedProducts.sort((a, b) => b.id - a.id);
+                } else if (sortBy === 'featured') {
+                    processedProducts.sort((a, b) => a.id - b.id);
+                }
+
+                renderProducts(processedProducts);
+            }
+            
+            priceSlider.addEventListener('input', (event) => {
+                const value = parseInt(event.target.value);
+                priceValue.textContent = `₹${value.toLocaleString('en-IN')}`;
+            });
+
+            applyFiltersBtn.addEventListener('click', applyFilters);
+            sortByDropdown.addEventListener('change', applyFilters);
+
+            renderProducts(allProducts);
+        });
+    </script>
+</body>
+</html>
